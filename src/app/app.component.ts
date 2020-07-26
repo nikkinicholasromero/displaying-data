@@ -13,6 +13,12 @@ import { Hero } from './hero';
       </li>
     </ul>
     <p *ngIf="heroes.length > 3">There are many heroes</p>
+    <p>{{doesThisDetectChanges()}}</p>
+    <button (click)="changeTitle()">Click me</button>
+    <input [type]="'text'"/>
+    <input [attr.type]="'text'"/>
+    <input [disabled]="true"/>
+    <input [attr.disabled]="'disabled'"/>
   `
 })
 export class AppComponent {
@@ -24,4 +30,13 @@ export class AppComponent {
     new Hero(1, 'Magneta'),
     new Hero(1, 'Tornado'),
   ];
+
+  doesThisDetectChanges(): string {
+    return this.title;
+  }
+
+  changeTitle(): void {
+    this.title = 'hello';
+  }
+  
 }
